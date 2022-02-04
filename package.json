@@ -1,0 +1,24 @@
+{
+  "name": "@hexlet/code",
+  "version": "1.0.0",
+  "description": "first project",
+  "main": "index.js",
+  "type": "module",
+  "bin": {
+    "brain-games": "bin/brain-games.js"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ToshiKajitsu/frontend-project-lvl1.git"
+  },
+  "author": "D.U.",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ToshiKajitsu/frontend-project-lvl1/issues"
+  },
+  "homepage": "https://github.com/ToshiKajitsu/frontend-project-lvl1#readme"
+  
+}
