@@ -1,10 +1,9 @@
 name: Node.js CI
 
 on:
-  push:
-    branches: [ main ]
-  pull_request:
-    branches: [ main ]
+  - push
+  - pull_request
+
 
 jobs:
   build:
@@ -16,8 +15,8 @@ jobs:
         node-version: [14.x]
 
     steps:
-      - name: check eslin
       - uses: actions/checkout@v2
+      - name: Use Node.js ${{ matrix.node-version }}
         uses: actions/setup-node@v1
         with:
           node-version: ${{ matrix.node-version }}
@@ -29,3 +28,10 @@ jobs:
       - name: Run linter
         run: |
           make lint
+      - name: Test & publish code coverage
+        uses: paambaati/codeclimate-action@v2.7.4
+        env:
+          CC_TEST_REPORTER_ID: ${{ secrets.977d9a435291f710e381a1a0846df84e4b21d996cc58cfb9631780b6b8030c77 }}
+        with:
+          coverageCommand: make test-coverage
+          debug: true
