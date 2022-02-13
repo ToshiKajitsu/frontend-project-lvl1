@@ -11,11 +11,8 @@ export default () => {
     console.log(`Question: ${randomNumber}`);
     const answerNumber = readlineSync.question('Your answer: ');
     const checkNumber = (answer) => {
-      if (answer === 'yes' && randomNumber % 2 === 0) {
-        return true;
-      } else if (answer === 'no' && randomNumber % 2 !== 0) {
-        return true;
-      } else return false;
+      if ((answer === 'yes' && randomNumber % 2 === 0) || (answer === 'no' && randomNumber % 2 !== 0)) return true;
+      return false;
     };
     if (checkNumber(answerNumber)) {
       console.log('Correct!');
@@ -24,14 +21,12 @@ export default () => {
       if (answerNumber === 'yes' && randomNumber % 2 !== 0) {
         console.log(`${answerNumber} is wrong answer ;(. Correct answer was 'no'.`);
         break;
-      } else if (answerNumber === 'no' && randomNumber % 2 === 0) {
-        console.log(`${answerNumber} is wrong answer ;(. Correct answer was 'yes'.`);
-        break;
       }
+      console.log(`${answerNumber} is wrong answer ;(. Correct answer was 'yes'.`);
+      break;
     }
   }
   if (number === 3) {
     console.log(`Congratulations, ${userName}`);
   }
 };
-

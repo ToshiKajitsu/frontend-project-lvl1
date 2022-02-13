@@ -24,6 +24,7 @@ module.exports = {
 			{
 				"js": "always",
 			}
-		]
+		],
+		'no-unused-vars':  'off'
 	}
 }
