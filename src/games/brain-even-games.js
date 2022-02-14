@@ -1,10 +1,12 @@
 import readlineSync from 'readline-sync';
-import userName from '../cli.js';
+import { hello, name } from '../cli.js';
 
-console.log('Answer "yes" if the number is even, otherwise answer "no".');
+hello();
+
 const getRandomNumber = () => Math.floor(Math.random() * (100 - 1)) + 1;
 
 export default () => {
+  console.log('Answer "yes" if the number is even, otherwise answer "no".');
   let number = 0;
   while (number < 3) {
     const randomNumber = getRandomNumber();
@@ -27,6 +29,6 @@ export default () => {
     }
   }
   if (number === 3) {
-    console.log(`Congratulations, ${userName}`);
+    console.log(`Congratulations, ${name[0]}!`);
   }
 };
