@@ -1,26 +1,24 @@
 import readlineSync from 'readline-sync';
-import { hello, name } from '../cli.js';
-
-hello();
-
-const getRandomNumber = () => Math.floor(Math.random() * (100 - 1)) + 1;
+import {
+  hello,
+  name,
+  getRandomNumber,
+  checkNumber,
+} from '../index.js';
 
 export default () => {
+  hello();
   console.log('Answer "yes" if the number is even, otherwise answer "no".');
   let number = 0;
   while (number < 3) {
-    const randomNumber = getRandomNumber();
+    const randomNumber = getRandomNumber(1, 100);
     console.log(`Question: ${randomNumber}`);
     const answerNumber = readlineSync.question('Your answer: ');
-    const checkNumber = (answer) => {
-      if ((answer === 'yes' && randomNumber % 2 === 0) || (answer === 'no' && randomNumber % 2 !== 0)) return true;
-      return false;
-    };
-    if (checkNumber(answerNumber)) {
+    if (checkNumber(answerNumber, randomNumber)) {
       console.log('Correct!');
       number += 1;
     } else {
-      if (answerNumber === 'yes' && randomNumber % 2 !== 0) {
+      if (!checkNumber) {
         console.log(`${answerNumber} is wrong answer ;(. Correct answer was 'no'.`);
         break;
       }

@@ -10,4 +10,4 @@ const hello = () => {
   console.log(`Hello, ${name[0]}!`);
 };
 
-export { name, hello };
+export default hello;
