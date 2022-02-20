@@ -9,24 +9,22 @@ import {
 export default () => {
   hello();
   console.log('Answer "yes" if the number is even, otherwise answer "no".');
-  let number = 0;
-  while (number < 3) {
+  let current = 0;
+  while (current < 3) {
     const randomNumber = getRandomNumber(1, 100);
     console.log(`Question: ${randomNumber}`);
-    const answerNumber = readlineSync.question('Your answer: ');
-    if (checkNumber(answerNumber, randomNumber)) {
+    const answer = readlineSync.question('Your answer: ');
+    if (checkNumber(answer, randomNumber)) {
       console.log('Correct!');
-      number += 1;
+      current += 1;
     } else {
       if (!checkNumber) {
-        console.log(`${answerNumber} is wrong answer ;(. Correct answer was 'no'.`);
+        console.log(`${answer} is wrong answer ;(. Correct answer was 'no'.`);
         break;
       }
-      console.log(`${answerNumber} is wrong answer ;(. Correct answer was 'yes'.`);
+      console.log(`${answer} is wrong answer ;(. Correct answer was 'yes'.`);
       break;
     }
   }
-  if (number === 3) {
-    console.log(`Congratulations, ${name[0]}!`);
-  }
+  if (current === 3) console.log(`Congratulations, ${name}!`);
 };
