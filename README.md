@@ -16,3 +16,6 @@ Calc
 
 Gcd
 [![asciicast](https://asciinema.org/a/zMEbq0Mxju2t00F8slOt7bSex.svg)](https://asciinema.org/a/zMEbq0Mxju2t00F8slOt7bSex)
+
+Progression
+[![asciicast](https://asciinema.org/a/X3ol7OeQmiobzz2bDNzoCZi8X.svg)](https://asciinema.org/a/X3ol7OeQmiobzz2bDNzoCZi8X)
