@@ -1,34 +1,28 @@
-import readlineSync from 'readline-sync';
 import {
-  hello,
-  name,
+  mainFunction,
   getRandomNumber,
 } from '../index.js';
 
-export default () => {
-  hello();
-  console.log('What number is missing in the progression?');
-  let current = 0;
-  while (current < 3) {
-    const result = [];
-    const startProgression = getRandomNumber(2, 100);
-    const currentProgression = getRandomNumber(2, 5);
-    for (let i = startProgression; i <= (startProgression + 100); i += currentProgression) {
-      result.push(i);
-    }
-    result.length = getRandomNumber(5, 10);
-    const elementPosition = getRandomNumber(1, result.length - 1);
-    result.splice(elementPosition, 1, '...');
-    console.log(`Question: ${result.join(' ')}`);
-    const answer = +readlineSync.question('Your answer: ');
-    if (answer === (result[elementPosition - 1] + currentProgression)) {
-      current += 1;
-      console.log('Correct!');
-    } else {
-      console.log(`${answer} is wrong answer ;(. Correct answer was ${result[elementPosition - 1] + currentProgression}.`);
-      console.log(`Let's try again, ${name}!`);
-      break;
-    }
+const checkProgression = (start, step) => {
+  const result = [];
+  for (let i = start; i <= (start + 100); i += step) {
+    result.push(i);
   }
-  if (current === 3) console.log(`Congratulations, ${name}!`);
+  return result;
 };
+
+const condition = 'What number is missing in the progression?';
+
+const checkFunction = () => {
+  const startProgression = getRandomNumber(2, 100);
+  const stepProgression = getRandomNumber(2, 5);
+  const resultArr = checkProgression(startProgression, stepProgression);
+  resultArr.length = getRandomNumber(5, 10);
+  const elementPosition = getRandomNumber(1, resultArr.length - 1);
+  resultArr.splice(elementPosition, 1, '...');
+  const question = `${resultArr.join(' ')}`;
+  const rigthAnswer = `${resultArr[elementPosition - 1] + stepProgression}`;
+  return { question, rigthAnswer };
+};
+
+export default () => mainFunction(condition, checkFunction);

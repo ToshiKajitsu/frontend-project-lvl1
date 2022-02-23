@@ -1,33 +1,30 @@
 import readlineSync from 'readline-sync';
 
-//  Block questions and user name
-const name = [];
-const userName = () => readlineSync.question('May I have your name? ');
-const hello = () => {
-  console.log('Welcome to the Brain Games!');
-  name.push(userName());
-  console.log(`Hello, ${name[0]}!`);
-};
-
-//  Block random numbers and operators
-const operators = ['+', '-', '*'];
 const getRandomNumber = (min, max) => Math.floor(Math.random() * (max - min + 1)) + min;
-const getRandomOperator = (arr) => {
-  const randomIndex = getRandomNumber(0, arr.length - 1);
-  return arr[randomIndex];
-};
-const isNotEven = (number) => number % 2 !== 0;
-const checkNumber = (answer, even) => {
-  if ((answer === 'yes' && even) || (answer === 'no' && isNotEven)) return true;
-  return false;
+
+const mainFunction = (condition, checkFunction) => {
+  console.log('Welcome to the Brain Games!');
+  const name = readlineSync.question('May I have your name? ');
+  console.log(`Hello, ${name}!`);
+  console.log(`${condition}`);
+  let current = 0;
+  while (current < 3) {
+    const { question, rigthAnswer } = checkFunction();
+    console.log(`Question: ${question}`);
+    const answer = readlineSync.question('Your answer: ');
+    if (answer === rigthAnswer) {
+      console.log('Correct!');
+    } else {
+      console.log(`${answer} is wrong answer ;(. Correct answer was ${rigthAnswer}.`);
+      console.log(`Let's try again, ${name}!`);
+      break;
+    }
+    current += 1;
+  }
+  console.log(`Congratulations, ${name}!`);
 };
 
 export {
-  name,
-  hello,
-  operators,
-  getRandomOperator,
+  mainFunction,
   getRandomNumber,
-  checkNumber,
-  isNotEven,
 };
