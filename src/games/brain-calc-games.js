@@ -5,10 +5,7 @@ import {
 
 const operators = ['+', '-', '*'];
 
-const getRandomOperator = (arr) => {
-  const randomIndex = getRandomNumber(0, arr.length - 1);
-  return arr[randomIndex];
-};
+const getRandomOperator = (arr) => arr[getRandomNumber(0, arr.length - 1)];
 
 const calc = (numberone, operator, numbertwo) => {
   switch (operator) {
