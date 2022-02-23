@@ -19,7 +19,7 @@ const checkFunction = () => {
   const resultArr = checkProgression(startProgression, stepProgression);
   resultArr.length = getRandomNumber(5, 10);
   const elementPosition = getRandomNumber(1, resultArr.length - 1);
-  resultArr.splice(elementPosition, 1, '...');
+  resultArr.splice(elementPosition, 1, '..');
   const question = `${resultArr.join(' ')}`;
   const rigthAnswer = `${resultArr[elementPosition - 1] + stepProgression}`;
   return { question, rigthAnswer };
