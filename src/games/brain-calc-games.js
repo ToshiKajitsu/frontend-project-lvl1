@@ -21,7 +21,7 @@ const checkFunction = () => {
   const numberOne = getRandomNumber(1, 100);
   const numberTwo = getRandomNumber(1, 100);
   const operator = getRandomOperator(operators);
-  const question = `${numberOne}${operator}${numberTwo}`;
+  const question = `${numberOne} ${operator} ${numberTwo}`;
   const rigthAnswer = String(calc(numberOne, operator, numberTwo));
   return { question, rigthAnswer };
 };
