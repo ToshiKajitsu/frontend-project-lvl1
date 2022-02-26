@@ -1,21 +1,20 @@
-import {
-  mainFunction,
-  getRandomNumber,
-} from '../index.js';
+import mainFunction from '../index.js';
+import getRandomNumber from '../utils.js';
 
-const nod = (a, b) => {
-  if (b > a) return nod(b, a);
+const getGcd = (a, b) => {
+  if (b > a) return getGcd(b, a);
   if (!b) return a;
-  return nod(b, a % b);
+  return getGcd(b, a % b);
 };
-const condition = 'Find the greatest common divisor of given numbers.';
 
-const checkFunction = () => {
+const description = 'Find the greatest common divisor of given numbers.';
+
+const generateRound = () => {
   const numberOne = getRandomNumber(1, 100);
   const numberTwo = getRandomNumber(1, 100);
   const question = `${numberOne} ${numberTwo}`;
-  const rigthAnswer = String(nod(numberOne, numberTwo));
+  const rigthAnswer = String(getGcd(numberOne, numberTwo));
   return { question, rigthAnswer };
 };
 
-export default () => mainFunction(condition, checkFunction);
+export default () => mainFunction(description, generateRound);

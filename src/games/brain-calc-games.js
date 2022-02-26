@@ -1,7 +1,5 @@
-import {
-  mainFunction,
-  getRandomNumber,
-} from '../index.js';
+import mainFunction from '../index.js';
+import getRandomNumber from '../utils.js';
 
 const operators = ['+', '-', '*'];
 
@@ -12,12 +10,12 @@ const calc = (numberone, operator, numbertwo) => {
     case '+': return numberone + numbertwo;
     case '-': return numberone - numbertwo;
     case '*': return numberone * numbertwo;
-    default: return false;
+    default: throw new Error('Unsupported operator');
   }
 };
 
-const condition = 'What is the result of the expression?';
-const checkFunction = () => {
+const description = 'What is the result of the expression?';
+const generateRound = () => {
   const numberOne = getRandomNumber(1, 100);
   const numberTwo = getRandomNumber(1, 100);
   const operator = getRandomOperator(operators);
@@ -26,4 +24,4 @@ const checkFunction = () => {
   return { question, rigthAnswer };
 };
 
-export default () => mainFunction(condition, checkFunction);
+export default () => mainFunction(description, generateRound);

@@ -1,14 +1,14 @@
-import {
-  mainFunction,
-  getRandomNumber,
-} from '../index.js';
+import mainFunction from '../index.js';
+import getRandomNumber from '../utils.js';
 
-const even = (number) => number % 2 === 0;
-const condition = 'Answer "yes" if the number is even, otherwise answer "no".';
-const checkFunction = () => {
+const isEven = (number) => number % 2 === 0;
+
+const description = 'Answer "yes" if the number is even, otherwise answer "no".';
+
+const generateRound = () => {
   const question = getRandomNumber(1, 100);
-  const rigthAnswer = even(question) ? 'yes' : 'no';
+  const rigthAnswer = isEven(question) ? 'yes' : 'no';
   return { question, rigthAnswer };
 };
 
-export default () => mainFunction(condition, checkFunction);
+export default () => mainFunction(description, generateRound);
