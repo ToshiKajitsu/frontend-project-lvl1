@@ -1,7 +1,7 @@
 import generalModule from '../index.js';
 import getRandomNumber from '../utils.js';
 
-const progressionLength = getRandomNumber(5, 11);
+const progressionLength = getRandomNumber(6, 11);
 
 const generateProgression = (start, step) => {
   const progression = [];
