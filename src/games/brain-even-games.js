@@ -1,4 +1,4 @@
-import mainFunction from '../index.js';
+import generalModule from '../index.js';
 import getRandomNumber from '../utils.js';
 
 const isEven = (number) => number % 2 === 0;
@@ -11,4 +11,4 @@ const generateRound = () => {
   return { question, rigthAnswer };
 };
 
-export default () => mainFunction(description, generateRound);
+export default () => generalModule(description, generateRound);

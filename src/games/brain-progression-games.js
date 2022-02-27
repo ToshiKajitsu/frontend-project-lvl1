@@ -1,12 +1,14 @@
-import mainFunction from '../index.js';
+import generalModule from '../index.js';
 import getRandomNumber from '../utils.js';
 
+const progressionLength = getRandomNumber(5, 11);
+
 const generateProgression = (start, step) => {
-  const result = [];
-  for (let i = start; i <= (start + 100); i += step) {
-    result.push(i);
+  const progression = [];
+  for (let i = 0; i < progressionLength; i += 1) {
+    progression.push(start + step * i);
   }
-  return result;
+  return progression;
 };
 
 const description = 'What number is missing in the progression?';
@@ -14,13 +16,12 @@ const description = 'What number is missing in the progression?';
 const generateRound = () => {
   const startProgression = getRandomNumber(2, 100);
   const stepProgression = getRandomNumber(2, 5);
-  const resultArr = generateProgression(startProgression, stepProgression);
-  resultArr.length = getRandomNumber(5, 10);
-  const elementPosition = getRandomNumber(1, resultArr.length - 1);
-  resultArr.splice(elementPosition, 1, '..');
-  const question = `${resultArr.join(' ')}`;
-  const rigthAnswer = `${resultArr[elementPosition - 1] + stepProgression}`;
+  const progression = generateProgression(startProgression, stepProgression);
+  const randomIndex = getRandomNumber(1, progression.length - 1);
+  progression[randomIndex] = '..';
+  const question = `${progression.join(' ')}`;
+  const rigthAnswer = `${progression[randomIndex - 1] + stepProgression}`;
   return { question, rigthAnswer };
 };
 
-export default () => mainFunction(description, generateRound);
+export default () => generalModule(description, generateRound);

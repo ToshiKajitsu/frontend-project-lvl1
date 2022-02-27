@@ -1,6 +1,6 @@
 import readlineSync from 'readline-sync';
 
-const mainFunction = (description, generateRound) => {
+const generalModule = (description, generateRound) => {
   console.log('Welcome to the Brain Games!');
   const name = readlineSync.question('May I have your name? ');
   console.log(`Hello, ${name}!`);
@@ -21,4 +21,4 @@ const mainFunction = (description, generateRound) => {
   console.log(`Congratulations, ${name}!`);
 };
 
-export default mainFunction;
+export default generalModule;
