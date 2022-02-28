@@ -32,7 +32,6 @@
 
 [![asciicast](https://asciinema.org/a/X3ol7OeQmiobzz2bDNzoCZi8X.svg)](https://asciinema.org/a/X3ol7OeQmiobzz2bDNzoCZi8X)
 
-### Brain Prime
 <h2>Game: "Is it a prime number?"</h2>
 <p>Сommand to run: `make brain-prime`</p>
 <p>Random number shown. Answer `yes` if given number is prime. Otherwise answer `no`.</p>
