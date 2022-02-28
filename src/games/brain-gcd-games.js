@@ -1,13 +1,13 @@
 import generalModule from '../index.js';
 import getRandomNumber from '../utils.js';
 
+const description = 'Find the greatest common divisor of given numbers.';
+
 const getGcd = (a, b) => {
   if (b > a) return getGcd(b, a);
   if (!b) return a;
   return getGcd(b, a % b);
 };
-
-const description = 'Find the greatest common divisor of given numbers.';
 
 const generateRound = () => {
   const numberOne = getRandomNumber(1, 100);
