@@ -6,7 +6,7 @@
 
 <h2>Console games set "Brain games"</h2>
 <p>To start, you need to clone the repository: `git clone https://github.com/ToshiKajitsu/frontend-project-lvl1.git`</p>
-<p>Install with command: ```make install```</p>
+<p>Install with command: `make install`</p>
 
 <h2>Game: "Parity check"</h2>
 <p>Сommand to run: `make brain-even`</p>
